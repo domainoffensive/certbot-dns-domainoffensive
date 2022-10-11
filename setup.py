@@ -2,7 +2,10 @@ from setuptools import setup
 from setuptools import find_packages
 
 
-version = '0.31.0'
+version = '1.0.1'
+
+with open('README.md') as f:
+    long_description = f.read()
 
 # Remember to update local-oldest-requirements.txt when changing the minimum
 # acme/certbot version.
@@ -20,16 +23,18 @@ docs_extras = [
 ]
 
 setup(
-    name='certbot-dns-do',
+    name='certbot-dns-domainoffensive',
     version=version,
     description="Domain-Offensive DNS Authenticator plugin for Certbot",
-    url='https://github.com/certbot/certbot',
+    url='https://github.com/domainoffensive/certbot-dns-domainoffensive',
     author="Certbot Project",
     author_email='client-dev@letsencrypt.org',
     license='Apache License 2.0',
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*',
+    long_description=long_description,
+    long_description_content_type='text/markdown',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Environment :: Plugins',
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: Apache Software License',
@@ -58,8 +63,8 @@ setup(
     },
     entry_points={
         'certbot.plugins': [
-            'dns-do = certbot_dns_do.dns_do:Authenticator',
+            'dns-domainoffensive = certbot_dns_domainoffensive.dns_domainoffensive:Authenticator',
         ],
     },
-    test_suite='certbot_dns_do',
+    test_suite='certbot_dns_domainoffensive',
 )

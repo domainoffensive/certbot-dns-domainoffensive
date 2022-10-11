@@ -1,5 +1,5 @@
 """
-The `~certbot_dns_do.dns_do` plugin automates the process of
+The `~certbot_dns_domainoffensive.dns_domainoffensive` plugin automates the process of
 completing a ``dns-01`` challenge (`~acme.challenges.DNS01`) by creating, and
 subsequently removing, TXT records using the Domain Offsenive API.
 
@@ -8,9 +8,9 @@ Named Arguments
 ---------------
 
 ========================================  =====================================
-``--dns-do-credentials``          Domain Offsenive credentials_ INI file.
+``--dns-domainoffensive-credentials``          Domain Offsenive credentials_ INI file.
                                           (Required)
-``--dns-do-propagation-seconds``  The number of seconds to wait for DNS
+``--dns-domainoffensive-propagation-seconds``  The number of seconds to wait for DNS
                                           to propagate before asking the ACME
                                           server to verify the DNS record.
                                           (Default: 10)
@@ -29,10 +29,10 @@ credentials, obtained from your Domain Offsenive
    :caption: Example credentials file:
 
    # Domain Offsenive API credentials used by Certbot
-   dns_do_api_token = XKrxpRBosdIKFzxW_CT3KLZNf6q0HG9i01zxXp5CPBs
+   dns_domainoffensive_api_token = XKrxpRBosdIKFzxW_CT3KLZNf6q0HG9i01zxXp5CPBs
 
 The path to this file can be provided interactively or using the
-``--dns-do-credentials`` command-line argument. Certbot records the path
+``--dns-domainoffensive-credentials`` command-line argument. Certbot records the path
 to this file for use during renewal, but does not store the file's contents.
 
 .. caution::
@@ -58,8 +58,8 @@ Examples
    :caption: To acquire a certificate for ``example.com``
 
    certbot certonly \\
-     --dns-do \\
-     --dns-do-credentials ~/.secrets/certbot/domainoffensive.ini \\
+     --dns-domainoffensive \\
+     --dns-domainoffensive-credentials ~/.secrets/certbot/domainoffensive.ini \\
      -d example.com
 
 .. code-block:: bash
@@ -67,8 +67,8 @@ Examples
              ``www.example.com``
 
    certbot certonly \\
-     --dns-do \\
-     --dns-do-credentials ~/.secrets/certbot/domainoffensive.ini \\
+     --dns-domainoffensive \\
+     --dns-domainoffensive-credentials ~/.secrets/certbot/domainoffensive.ini \\
      -d example.com \\
      -d www.example.com
 
@@ -77,9 +77,9 @@ Examples
              for DNS propagation
 
    certbot certonly \\
-     --dns-do \\
-     --dns-do-credentials ~/.secrets/certbot/domainoffensive.ini \\
-     --dns-do-propagation-seconds 60 \\
+     --dns-domainoffensive \\
+     --dns-domainoffensive-credentials ~/.secrets/certbot/domainoffensive.ini \\
+     --dns-domainoffensive-propagation-seconds 60 \\
      -d example.com
 
 """
