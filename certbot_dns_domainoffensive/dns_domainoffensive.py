@@ -10,8 +10,8 @@ from certbot.plugins import dns_common
 
 logger = logging.getLogger(__name__)
 
-ACCOUNT_URL = 'https://www.do.de/account/letsencrypt/'
-API_URL = 'https://www.do.de/api/letsencrypt'
+ACCOUNT_URL = 'https://my.do.de/settings/domains/general/'
+API_URL = 'https://my.do.de/api/letsencrypt'
 
 
 @zope.interface.implementer(interfaces.IAuthenticator)
